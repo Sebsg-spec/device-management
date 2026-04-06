@@ -3,11 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Device_management.Data;
 using Device_management.Models;
 using Device_management.DTOs;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Device_management.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class DevicesController : ControllerBase
 {
     private readonly DeviceDbContext _context;
@@ -15,6 +18,73 @@ public class DevicesController : ControllerBase
     public DevicesController(DeviceDbContext context)
     {
         _context = context;
+    }
+
+
+    private int GetCurrentUserId()
+    {
+        var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        return int.Parse(userIdString!);
+    }
+
+    [HttpPost("{id}/assign")]
+    public async Task<IActionResult> AssignToSelf(int id)
+    {
+        var userId = GetCurrentUserId();
+
+        // 1. Check if the device exists
+        var deviceExists = await _context.Device.AnyAsync(d => d.Id == id);
+        if (!deviceExists) return NotFound("Device not found.");
+
+        // 2. Check if it's already assigned to someone (ReturnedAt is null)
+        var activeAssignment = await _context.DeviceAssignment
+            .FirstOrDefaultAsync(a => a.DeviceId == id && a.ReturnedAt == null);
+
+        if (activeAssignment != null)
+        {
+            return BadRequest("This device is currently assigned to another user and cannot be claimed.");
+        }
+
+        // 3. Create the new assignment for the current user
+        var newAssignment = new DeviceAssignment
+        {
+            DeviceId = id,
+            UserId = userId,
+            AssignedAt = DateTime.UtcNow
+        };
+
+        _context.DeviceAssignment.Add(newAssignment);
+        await _context.SaveChangesAsync();
+
+        return Ok(new { message = "Device successfully assigned to you." });
+    }
+
+    [HttpPost("{id}/unassign")]
+    public async Task<IActionResult> UnassignFromSelf(int id)
+    {
+        var userId = GetCurrentUserId();
+
+        // 1. Find the active assignment for this device
+        var activeAssignment = await _context.DeviceAssignment
+            .FirstOrDefaultAsync(a => a.DeviceId == id && a.ReturnedAt == null);
+
+        // 2. If it's not assigned at all
+        if (activeAssignment == null)
+        {
+            return BadRequest("This device is not currently assigned to anyone.");
+        }
+
+        // 3. IMPORTANT: Ensure the person unassigning it is the person who owns it!
+        if (activeAssignment.UserId != userId)
+        {
+            return StatusCode(403, "Forbidden: You can only unassign devices that are assigned to you.");
+        }
+
+        // 4. "Return" the device
+        activeAssignment.ReturnedAt = DateTime.UtcNow;
+        await _context.SaveChangesAsync();
+
+        return Ok(new { message = "Device successfully unassigned." });
     }
 
     // 1. Load data from the DB (Get All)

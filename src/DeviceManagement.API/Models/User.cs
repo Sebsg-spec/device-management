@@ -8,7 +8,7 @@
         public string? Email { get; set; }
         public int? LocationId { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
+        public string? PasswordHash { get; set; }
         public virtual Location? Location { get; set; }
     }
 }

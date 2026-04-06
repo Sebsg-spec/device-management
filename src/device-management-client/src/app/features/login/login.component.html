@@ -47,10 +47,11 @@
           </button>
         </div>
       </form>
-
-      <div class="mt-6">
-        <p class="text-center text-xs text-slate-500">
-          Internal access only. Contact IT for account requests.
+<p class="text-red-500 text-sm text-center">{{ errorMessage }}</p>
+      <div class="mt-6 text-center">
+        <p class="text-sm text-slate-600">
+          Don't have an account? 
+          <a routerLink="/register" class="font-bold text-blue-600 hover:text-blue-500 transition">Register here</a>
         </p>
       </div>
     </div>

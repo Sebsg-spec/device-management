@@ -1393,3 +1393,5 @@ C:\Users\Sebi\Desktop\Repos\device-management\src\DeviceManagement.API\obj\Debug
 C:\Users\Sebi\Desktop\Repos\device-management\src\DeviceManagement.API\obj\Debug\net8.0\Device_management.pdb
 C:\Users\Sebi\Desktop\Repos\device-management\src\DeviceManagement.API\obj\Debug\net8.0\Device_management.genruntimeconfig.cache
 C:\Users\Sebi\Desktop\Repos\device-management\src\DeviceManagement.API\obj\Debug\net8.0\ref\Device_management.dll
+C:\Users\Sebi\Desktop\Repos\device-management\src\DeviceManagement.API\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\Sebi\Desktop\Repos\device-management\src\DeviceManagement.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

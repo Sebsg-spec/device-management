@@ -11,8 +11,10 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   private router = inject(Router);
 
-  // This check tells the HTML whether to show the sidebar or not
-  isLoginPage(): boolean {
-    return this.router.url === '/login' || this.router.url === '/';
+
+
+  get isAuthPage(): boolean {
+    const url = this.router.url;
+    return url === '/login' || url === '/register' || url === '/';
   }
 }

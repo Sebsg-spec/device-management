@@ -1,0 +1,70 @@
+<div class="min-h-screen bg-slate-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md text-center">
+    <h1 class="text-4xl font-extrabold text-white tracking-tight mb-2">
+      Device<span class="text-blue-500">Log</span>
+    </h1>
+    <h2 class="text-sm font-medium text-slate-400 uppercase tracking-widest">
+      Create Employee Account
+    </h2>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow-2xl rounded-2xl sm:px-10 border border-slate-200">
+      
+      @if (errorMessage) {
+        <div class="mb-4 p-3 bg-red-50 text-red-700 text-sm rounded-lg border border-red-200">
+          {{ errorMessage }}
+        </div>
+      }
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-5">
+        
+        <div>
+          <label class="block text-sm font-semibold text-slate-700">Full Name</label>
+          <input formControlName="name" type="text" 
+                 class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 outline-none transition"
+                 placeholder="John Doe">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700">Email Address</label>
+          <input formControlName="email" type="email" 
+                 class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 outline-none transition"
+                 placeholder="john@company.com">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700">Password</label>
+          <input formControlName="password" type="password" 
+                 class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 outline-none transition"
+                 placeholder="••••••••">
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700">Office Location</label>
+          <select formControlName="locationId" 
+                  class="mt-1 block w-full px-4 py-3 border border-slate-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 outline-none transition bg-white">
+            <option value="">Select a location</option>
+            @for (loc of locations; track loc.id) {
+              <option [value]="loc.id">{{ loc.name }}</option>
+            }
+          </select>
+        </div>
+
+        <div>
+          <button type="submit" [disabled]="registerForm.invalid || isSubmitting"
+                  class="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed">
+            {{ isSubmitting ? 'Creating Account...' : 'Register' }}
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-6 text-center">
+        <p class="text-sm text-slate-600">
+          Already have an account? 
+          <a routerLink="/login" class="font-bold text-blue-600 hover:text-blue-500 transition">Sign in here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
