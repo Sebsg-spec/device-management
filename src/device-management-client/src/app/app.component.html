@@ -1,7 +1,55 @@
-<main style="padding: 20px; font-family: sans-serif;">
-  <h1>Company Device Management</h1>
-  <hr />
-  
-  <router-outlet></router-outlet>
-  
-</main>
+@if (isLoginPage()) {
+  <div class="min-h-screen bg-slate-900">
+    <router-outlet></router-outlet>
+  </div>
+} @else {
+  <div class="h-screen flex overflow-hidden bg-gray-50 font-sans">
+    
+    <aside class="w-64 bg-slate-900 text-white flex flex-col h-full flex-shrink-0 border-r border-slate-800">
+      <div class="p-6 text-2xl font-bold border-b border-slate-800 tracking-tight">
+        Device<span class="text-blue-400">Log</span>
+      </div>
+      
+      <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+        <a routerLink="/devices" 
+           routerLinkActive="bg-blue-600" 
+           [routerLinkActiveOptions]="{ exact: true }" 
+           class="flex items-center p-3 rounded-lg hover:bg-slate-800 transition-all duration-200 group">
+          <span class="font-medium">Dashboard</span>
+        </a>
+        
+        <a routerLink="/devices/new" 
+           routerLinkActive="bg-blue-600" 
+           class="flex items-center p-3 rounded-lg hover:bg-slate-800 transition-all duration-200 group">
+          <span class="font-medium">Add Device</span>
+        </a>
+      </nav>
+
+      <div class="p-4 border-t border-slate-800 text-sm text-slate-400 bg-slate-900/50">
+        <div class="flex items-center justify-between">
+          <span>v1.0.0 Stable</span>
+          <div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-full overflow-hidden">
+      <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 flex-shrink-0 border-b border-gray-100">
+        <h1 class="text-lg font-semibold text-gray-700">Enterprise Management System</h1>
+        
+        <div class="flex items-center space-x-3">
+          <span class="text-sm text-gray-500 font-medium">Admin User</span>
+          <div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">
+            AD
+          </div>
+        </div>
+      </header>
+
+      <section class="flex-1 p-8 overflow-y-auto custom-scrollbar">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 min-h-full">
+          <router-outlet></router-outlet>
+        </div>
+      </section>
+    </main>
+  </div>
+}

@@ -4,5 +4,9 @@ import { DeviceListComponent } from './features/devices/components/device-list/d
 export const routes: Routes = [
     { path: '', redirectTo: 'devices', pathMatch: 'full' },
     { path: 'devices', 
-    loadChildren: () => import('./features/devices/devices.routes').then(m => m.deviceRoutes) }
+    loadChildren: () => import('./features/devices/devices.routes').then(m => m.deviceRoutes) },
+    { 
+    path: 'login', 
+    loadComponent: () => import('./features/login/login.component').then(m => m.LoginComponent) 
+  },
 ];

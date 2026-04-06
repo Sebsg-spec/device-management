@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Device_management\Device_management.csproj" />
+    <ProjectReference Include="..\DeviceManagement.API\Device_management.csproj" />
   </ItemGroup>
 
   <ItemGroup>

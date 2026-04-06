@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sebi\\Desktop\\Repos\\Device_management\\Device_management.csproj": {}
+    "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Device_management.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sebi\\Desktop\\Repos\\Device_management\\Device_management.csproj": {
+    "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Device_management.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sebi\\Desktop\\Repos\\Device_management\\Device_management.csproj",
+        "projectUniqueName": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Device_management.csproj",
         "projectName": "Device_management",
-        "projectPath": "C:\\Users\\Sebi\\Desktop\\Repos\\Device_management\\Device_management.csproj",
+        "projectPath": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Device_management.csproj",
         "packagesPath": "C:\\Users\\Sebi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sebi\\Desktop\\Repos\\Device_management\\obj\\",
+        "outputPath": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

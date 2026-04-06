@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [RouterOutlet, RouterModule, CommonModule],
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'device-management-client';
+  private router = inject(Router);
+
+  // This check tells the HTML whether to show the sidebar or not
+  isLoginPage(): boolean {
+    return this.router.url === '/login' || this.router.url === '/';
+  }
 }

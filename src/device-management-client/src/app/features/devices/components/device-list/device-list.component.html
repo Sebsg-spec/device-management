@@ -1,32 +1,92 @@
-<div class="header-row">
-  <h2>Device Inventory</h2>
-  <button routerLink="new" class="btn-primary">+ Add New Device</button>
+<div class="flex justify-between items-center mb-6">
+  <div>
+    <h2 class="text-2xl font-bold text-gray-800">Device Inventory</h2>
+    <p class="text-sm text-gray-500">Showing {{ pagedDevices.length }} of {{ allDevices.length }} total assets</p>
+  </div>
+  <button routerLink="new" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition shadow-sm">
+    + Add Device
+  </button>
 </div>
 
-<table class="device-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>OS</th>
-      <th>Current User</th> <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  @for (device of devices; track device.deviceId) {
-  <tr>
-    <td><strong>{{ device.deviceName }}</strong></td>
-    <td>{{ device.deviceType }}</td>
-    <td>{{ device.operatingSystem }}</td>
-    <td>{{ device.userName || 'Unassigned' }}</td>
-    <td>
-      <button [routerLink]="[device.deviceId]" class="btn-info">Details</button>
-      <button [routerLink]="[device.deviceId, 'edit']" class="btn-edit">Edit</button>
-      <button (click)="deleteDevice(device.deviceId)" class="btn-delete">Delete</button>
-    </td>
-  </tr>
-} @empty {
-      <tr><td colspan="5">No devices found.</td></tr>
-    }
-  </tbody>
-</table>
+<div class="overflow-hidden border border-gray-200 rounded-xl">
+  <table class="min-w-full divide-y divide-gray-200 bg-white">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Device Name</th>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Manufacturer</th>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">OS / Version</th>
+        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Current User</th>
+        <th class="px-6 py-3 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+      @for (device of pagedDevices; track device.deviceId) {
+        <tr class="hover:bg-gray-50 transition-colors">
+          <td class="px-6 py-4">
+            <div class="text-sm font-bold text-gray-900">{{ device.deviceName }}</div>
+          </td>
+          <td class="px-6 py-4 text-sm text-gray-600">
+            {{ device.manufacturer }}
+          </td>
+          <td class="px-6 py-4">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
+              {{ device.operatingSystem }} {{ device.osVersion }}
+            </span>
+          </td>
+          <td class="px-6 py-4">
+            <div class="flex items-center">
+              <div class="h-7 w-7 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-600 mr-2">
+                {{ (device.userName || 'U')[0] }}
+              </div>
+              <span class="text-sm" [class.text-gray-400]="!device.userName">
+                {{ device.userName || 'Unassigned' }}
+              </span>
+            </div>
+          </td>
+          <td class="px-6 py-4 text-right text-sm font-medium space-x-3">
+            <button [routerLink]="[device.deviceId]" class="text-blue-600 hover:text-blue-900">Details</button>
+            <button [routerLink]="[device.deviceId, 'edit']" class="text-amber-600 hover:text-amber-900">Edit</button>
+            <button (click)="deleteDevice(device.deviceId)" class="text-red-600 hover:text-red-900">Delete</button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" class="px-6 py-10 text-center text-gray-500">
+            No devices found in this range.
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="bg-white px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-sm text-gray-700">Show</span>
+      <select (change)="onPageSizeChange($event)" class="text-sm border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+        @for (size of pageSizeOptions; track size) {
+          <option [value]="size" [selected]="size === pageSize">{{ size }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-700">
+        Page <span class="font-semibold">{{ currentPage }}</span> of <span class="font-semibold">{{ totalPages }}</span>
+      </span>
+      <div class="flex gap-1">
+        <button 
+          (click)="changePage(-1)" 
+          [disabled]="currentPage === 1"
+          class="px-3 py-1 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+          Previous
+        </button>
+        <button 
+          (click)="changePage(1)" 
+          [disabled]="currentPage >= totalPages"
+          class="px-3 py-1 text-sm font-medium rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

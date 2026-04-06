@@ -1,88 +1,132 @@
-<h2>{{ isEditMode ? 'Edit' : 'Create' }} Device</h2>
-
-<form [formGroup]="deviceForm" (ngSubmit)="onSubmit()" class="form-container">
-  
-  <div class="form-group">
-    <label>Device Name*</label>
-    <input formControlName="name" type="text" />
-    @if (deviceForm.get('name')?.invalid && deviceForm.get('name')?.touched) {
-      <span class="error">Name is required.</span>
-    }
+<div class="max-w-4xl mx-auto">
+  <div class="mb-8">
+    <h2 class="text-3xl font-bold text-gray-800">{{ isEditMode ? 'Edit' : 'Register New' }} Device</h2>
+    <p class="text-gray-500 mt-1">Please fill out the technical specifications and assignment details below.</p>
   </div>
 
-  <div class="form-group">
-    <label>Type*</label>
-    <select formControlName="type">
-      <option value="">Select Type</option>
-      <option value="Phone">Phone</option>
-      <option value="Tablet">Tablet</option>
-    </select>
-  </div>
+  <form [formGroup]="deviceForm" (ngSubmit)="onSubmit()" class="space-y-8">
+    
+    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <h3 class="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+        <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-2 text-sm">1</span>
+        Core Specifications
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">Device Name*</label>
+          <input formControlName="name" type="text" 
+                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                 placeholder="e.g. MacBook Pro M3" />
+          @if (deviceForm.get('name')?.invalid && deviceForm.get('name')?.touched) {
+            <span class="text-xs text-red-500 mt-1">Name is required.</span>
+          }
+        </div>
 
-  <div class="form-group">
-    <label>Manufacturer*</label>
-    <select formControlName="manufacturerId">
-      <option [ngValue]="null">Select a Manufacturer</option>
-      @for (m of manufacturers; track m.id) {
-        <option [value]="m.id">{{ m.name }}</option>
-      }
-    </select>
-  </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">Device Type*</label>
+          <select formControlName="type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
+            <option value="">Select Type</option>
+            <option value="Phone">Phone</option>
+            <option value="Tablet">Tablet</option>
+            <option value="Laptop">Laptop</option>
+          </select>
+        </div>
 
-  <div class="form-group">
-    <label>Operating System*</label>
-    <select formControlName="operatingSystemId">
-      <option [ngValue]="null">Select an OS</option>
-      @for (os of operatingSystems; track os.id) {
-        <option [value]="os.id">{{ os.name }}</option>
-      }
-    </select>
-  </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">Manufacturer*</label>
+          <select formControlName="manufacturerId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
+            <option [ngValue]="null">Select a Manufacturer</option>
+            @for (m of manufacturers; track m.id) {
+              <option [value]="m.id">{{ m.name }}</option>
+            }
+          </select>
+        </div>
 
-  <div class="form-group">
-    <label>OS Version*</label>
-    <input formControlName="osVersion" type="text" />
-  </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">Operating System*</label>
+          <select formControlName="operatingSystemId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white">
+            <option [ngValue]="null">Select an OS</option>
+            @for (os of operatingSystems; track os.id) {
+              <option [value]="os.id">{{ os.name }}</option>
+            }
+          </select>
+        </div>
 
-  <div class="form-group">
-    <label>Processor</label>
-    <input formControlName="processor" type="text" placeholder="e.g., Apple A16 Bionic" />
-  </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">OS Version*</label>
+          <input formControlName="osVersion" type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" />
+        </div>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <label>RAM (MB)</label>
-    <input formControlName="raM_MB" type="number" placeholder="e.g., 6144" />
-  </div>
+    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <h3 class="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+        <span class="w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mr-2 text-sm">2</span>
+        Technical Details
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">Processor</label>
+          <input formControlName="processor" type="text" placeholder="e.g. Apple A16 Bionic" 
+                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" />
+        </div>
 
-  
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">RAM (MB)</label>
+          <input formControlName="raM_MB" type="number" placeholder="e.g. 6144" 
+                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" />
+        </div>
 
-  <div class="form-group">
-    <label>Description</label>
-    <textarea formControlName="description" rows="3"></textarea>
-  </div>
+        <div class="flex flex-col md:col-span-2">
+          <label class="text-sm font-medium text-gray-700 mb-1">Description</label>
+          <textarea formControlName="description" rows="3" 
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+                    placeholder="Add any additional notes about the device status..."></textarea>
+        </div>
+      </div>
+    </div>
 
-  <hr>
-  <h3>Assignment</h3>
+    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <h3 class="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+        <span class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center mr-2 text-sm">3</span>
+        Assignment & Logistics
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">Assign to User</label>
+          <select formControlName="userId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition bg-white">
+            <option [ngValue]="null">Unassigned</option>
+            @for (user of users; track user.id) {
+              <option [ngValue]="user.id">{{ user.name }}</option>
+            }
+          </select>
+        </div>
 
-  <div class="form-group">
-    <label>Assign to User</label>
-    <select formControlName="userId">
-      <option [ngValue]="null">Unassigned</option>
-      @for (user of users; track user.id) {
-        <option [ngValue]="user.id">{{ user.name }}</option>
-      }
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Location</label>
-    <select formControlName="locationId">
-      <option [ngValue]="null">Select a Location</option>
-      @for (loc of locations; track loc.id) {
-        <option [value]="loc.id">{{ loc.name }}</option>
-      }
-    </select>
-  </div>
+        <div class="flex flex-col">
+          <label class="text-sm font-medium text-gray-700 mb-1">Location</label>
+          <select formControlName="locationId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition bg-white">
+            <option [ngValue]="null">Select a Location</option>
+            @for (loc of locations; track loc.id) {
+              <option [value]="loc.id">{{ loc.name }}</option>
+            }
+          </select>
+        </div>
+      </div>
+    </div>
 
-  <button type="submit" class="btn-primary" [disabled]="deviceForm.invalid">Save Device</button>
-  <button type="button" routerLink=".." class="btn-secondary">Cancel</button>
-</form>
+    <div class="flex items-center justify-end space-x-4 pt-4">
+      <button type="button" routerLink=".." 
+              class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium">
+        Cancel
+      </button>
+      <button type="submit" 
+              [disabled]="deviceForm.invalid"
+              class="px-10 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-bold shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
+        {{ isEditMode ? 'Update Device' : 'Save Device' }}
+      </button>
+    </div>
+  </form>
+</div>

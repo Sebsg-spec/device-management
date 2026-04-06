@@ -1,12 +1,15 @@
-
+# .NET Build folders
 bin/
 obj/
+.vs/
 *.user
 *.suo
-.vs/
+
+# Angular folders
+node_modules/
+dist/
+.angular/
+
+# Secrets & Environment
+.env
 appsettings.Development.json
-
-
-
-
-
