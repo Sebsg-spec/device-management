@@ -1,0 +1,32 @@
+<div class="header-row">
+  <h2>Device Inventory</h2>
+  <button routerLink="new" class="btn-primary">+ Add New Device</button>
+</div>
+
+<table class="device-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>OS</th>
+      <th>Current User</th> <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  @for (device of devices; track device.deviceId) {
+  <tr>
+    <td><strong>{{ device.deviceName }}</strong></td>
+    <td>{{ device.deviceType }}</td>
+    <td>{{ device.operatingSystem }}</td>
+    <td>{{ device.userName || 'Unassigned' }}</td>
+    <td>
+      <button [routerLink]="[device.deviceId]" class="btn-info">Details</button>
+      <button [routerLink]="[device.deviceId, 'edit']" class="btn-edit">Edit</button>
+      <button (click)="deleteDevice(device.deviceId)" class="btn-delete">Delete</button>
+    </td>
+  </tr>
+} @empty {
+      <tr><td colspan="5">No devices found.</td></tr>
+    }
+  </tbody>
+</table>

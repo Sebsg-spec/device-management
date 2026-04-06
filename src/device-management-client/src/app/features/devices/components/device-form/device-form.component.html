@@ -1,0 +1,88 @@
+<h2>{{ isEditMode ? 'Edit' : 'Create' }} Device</h2>
+
+<form [formGroup]="deviceForm" (ngSubmit)="onSubmit()" class="form-container">
+  
+  <div class="form-group">
+    <label>Device Name*</label>
+    <input formControlName="name" type="text" />
+    @if (deviceForm.get('name')?.invalid && deviceForm.get('name')?.touched) {
+      <span class="error">Name is required.</span>
+    }
+  </div>
+
+  <div class="form-group">
+    <label>Type*</label>
+    <select formControlName="type">
+      <option value="">Select Type</option>
+      <option value="Phone">Phone</option>
+      <option value="Tablet">Tablet</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Manufacturer*</label>
+    <select formControlName="manufacturerId">
+      <option [ngValue]="null">Select a Manufacturer</option>
+      @for (m of manufacturers; track m.id) {
+        <option [value]="m.id">{{ m.name }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Operating System*</label>
+    <select formControlName="operatingSystemId">
+      <option [ngValue]="null">Select an OS</option>
+      @for (os of operatingSystems; track os.id) {
+        <option [value]="os.id">{{ os.name }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>OS Version*</label>
+    <input formControlName="osVersion" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label>Processor</label>
+    <input formControlName="processor" type="text" placeholder="e.g., Apple A16 Bionic" />
+  </div>
+
+  <div class="form-group">
+    <label>RAM (MB)</label>
+    <input formControlName="raM_MB" type="number" placeholder="e.g., 6144" />
+  </div>
+
+  
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea formControlName="description" rows="3"></textarea>
+  </div>
+
+  <hr>
+  <h3>Assignment</h3>
+
+  <div class="form-group">
+    <label>Assign to User</label>
+    <select formControlName="userId">
+      <option [ngValue]="null">Unassigned</option>
+      @for (user of users; track user.id) {
+        <option [ngValue]="user.id">{{ user.name }}</option>
+      }
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Location</label>
+    <select formControlName="locationId">
+      <option [ngValue]="null">Select a Location</option>
+      @for (loc of locations; track loc.id) {
+        <option [value]="loc.id">{{ loc.name }}</option>
+      }
+    </select>
+  </div>
+
+  <button type="submit" class="btn-primary" [disabled]="deviceForm.invalid">Save Device</button>
+  <button type="button" routerLink=".." class="btn-secondary">Cancel</button>
+</form>
