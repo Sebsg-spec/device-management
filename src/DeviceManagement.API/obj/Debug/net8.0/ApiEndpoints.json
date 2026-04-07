@@ -173,24 +173,30 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Device_management.Controllers.DevicesController",
+    "Method": "GenerateDescription",
+    "RelativePath": "api/Devices/generate-description",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "specs",
+        "Type": "Device_management.DTOs.DeviceSpecsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Device_management.Controllers.LocationsController",
-    "Method": "GetUsers",
+    "Method": "GetLocations",
     "RelativePath": "api/Locations",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Device_management.Models.Location, Device_management, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Device_management.Controllers.ManufacturersControlle",

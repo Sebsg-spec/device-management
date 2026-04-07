@@ -18,9 +18,14 @@ namespace Device_management.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetUsers()
+        public async Task<IActionResult> GetLocations()
         {
-            return await _context.Location.ToListAsync();
+           
+            var locations = await _context.Location
+                .Select(l => new { l.Id, l.Name })
+                .ToListAsync();
+
+            return Ok(locations);
         }
 
     }

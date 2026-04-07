@@ -37,12 +37,20 @@
       <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 flex-shrink-0 border-b border-gray-100">
         <h1 class="text-lg font-semibold text-gray-700">Enterprise Management System</h1>
         
-        <div class="flex items-center space-x-3">
-          <span class="text-sm text-gray-500 font-medium">Admin User</span>
-          <div class="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">
-            AD
-          </div>
-        </div>
+       <div class="flex items-center space-x-4">
+  
+  <div class="text-right">
+    <div class="text-sm font-bold text-gray-700">{{ userName }}</div>
+    <div class="text-xs text-gray-500">{{ userRole }}</div>
+  </div>
+  
+  <button (click)="logout()" 
+          title="Click to log out"
+          class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-sm hover:bg-red-600 hover:scale-105 transition-all cursor-pointer">
+    {{ userInitials }}
+  </button>
+  
+</div>
       </header>
 
       <section class="flex-1 p-8 overflow-y-auto custom-scrollbar">

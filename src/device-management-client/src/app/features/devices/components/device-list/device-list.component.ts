@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'; // Important for pipes/directive
 import { RouterModule } from '@angular/router';
 import { DeviceService } from '../../../../core/services/device.service';
 import { DeviceReadDto } from '../../../../shared/models/device.model';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-device-list',
@@ -12,6 +13,7 @@ import { DeviceReadDto } from '../../../../shared/models/device.model';
 })
 export class DeviceListComponent implements OnInit {
   private deviceService = inject(DeviceService);
+  private authService = inject(AuthService);
 
   // Data arrays
   allDevices: DeviceReadDto[] = []; 
@@ -21,6 +23,8 @@ export class DeviceListComponent implements OnInit {
   currentPage = 1;
   pageSize = 5;
   pageSizeOptions = [5, 10, 25, 50];
+  currentUserName = this.authService.getCurrentUserName();
+  isAdmin = this.authService.isAdmin();
 
   ngOnInit(): void {
     this.loadDevices();
@@ -70,4 +74,27 @@ export class DeviceListComponent implements OnInit {
       });
     }
   }
+
+  claimDevice(id: number): void {
+    this.deviceService.assignToSelf(id).subscribe({
+      next: () => {
+        alert('Device claimed successfully!');
+        this.loadDevices(); // Refresh the table
+      },
+      error: (err) => alert(err.error || 'Could not claim device')
+    });
+  }
+
+  returnDevice(id: number): void {
+    if (confirm('Are you sure you want to return this device?')) {
+      this.deviceService.unassignFromSelf(id).subscribe({
+        next: () => {
+          alert('Device returned successfully!');
+          this.loadDevices(); // Refresh the table
+        },
+        error: (err) => alert(err.error || 'Could not return device')
+      });
+    }
+  }
+
 }

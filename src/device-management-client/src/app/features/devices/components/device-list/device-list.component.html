@@ -43,11 +43,28 @@
               </span>
             </div>
           </td>
-          <td class="px-6 py-4 text-right text-sm font-medium space-x-3">
-            <button [routerLink]="[device.deviceId]" class="text-blue-600 hover:text-blue-900">Details</button>
-            <button [routerLink]="[device.deviceId, 'edit']" class="text-amber-600 hover:text-amber-900">Edit</button>
-            <button (click)="deleteDevice(device.deviceId)" class="text-red-600 hover:text-red-900">Delete</button>
-          </td>
+          <<td class="px-6 py-4 text-right text-sm font-medium space-x-3 flex justify-end items-center">
+  
+  @if (!device.userName) {
+    <button (click)="claimDevice(device.deviceId)" class="text-green-700 hover:text-green-900 font-semibold bg-green-100 hover:bg-green-200 px-3 py-1 rounded transition mr-2">
+      Claim
+    </button>
+  } @else if (device.userName === currentUserName) {
+    <button (click)="returnDevice(device.deviceId)" class="text-amber-700 hover:text-amber-900 font-semibold bg-amber-100 hover:bg-amber-200 px-3 py-1 rounded transition mr-2">
+      Return
+    </button>
+  } @else {
+    <span class="text-gray-400 italic px-3 py-1 mr-2 border border-transparent">In Use</span>
+  }
+
+  <button [routerLink]="[device.deviceId]" class="text-blue-600 hover:text-blue-900 border-l border-gray-300 pl-3">Details</button>
+ 
+  
+  @if (isAdmin) {
+    <button [routerLink]="[device.deviceId, 'edit']" class="text-indigo-600 hover:text-indigo-900">Edit</button>
+    <button (click)="deleteDevice(device.deviceId)" class="text-red-600 hover:text-red-900">Delete</button>
+  }
+</td>
         </tr>
       } @empty {
         <tr>

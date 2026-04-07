@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Device_management.Data;
 using Device_management.Models;
-using Device_management.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using System.Text.Json.Nodes;
+using System.Text.Json;
+using Device_management.DTOs;
 
 namespace Device_management.Controllers;
 
@@ -14,10 +16,12 @@ namespace Device_management.Controllers;
 public class DevicesController : ControllerBase
 {
     private readonly DeviceDbContext _context;
+    private readonly IConfiguration _configuration;
 
-    public DevicesController(DeviceDbContext context)
+    public DevicesController(DeviceDbContext context, IConfiguration configuration)
     {
         _context = context;
+        _configuration = configuration; 
     }
 
 
@@ -25,6 +29,48 @@ public class DevicesController : ControllerBase
     {
         var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         return int.Parse(userIdString!);
+    }
+
+    // 1. Load data from the DB (Get All)
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<CurrentAssignmentView>>> GetDevices()
+    {
+        return await _context.CurrentAssignments.ToListAsync();
+    }
+
+    // 2. Select an item based on an ID
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Device>> GetDevice(int id)
+    {
+        var device = await _context.Device
+        .Include(d => d.DeviceAssignments)
+        .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (device == null)
+        {
+            return NotFound();
+        }
+        var activeAssignment = device.DeviceAssignments
+        .FirstOrDefault(a => a.ReturnedAt == null);
+
+        var devicePayload = new
+        {
+            device.Id,
+            device.Name,
+            device.ManufacturerId,
+            device.Type,
+            device.OperatingSystemId,
+            device.OSVersion,
+            device.Processor,
+            device.RAM_MB,
+            device.Description,
+            device.LocationId,
+
+            // This is the magic property Angular needs to set the dropdown!
+            UserId = activeAssignment?.UserId
+        };
+
+        return Ok(devicePayload);
     }
 
     [HttpPost("{id}/assign")]
@@ -85,48 +131,6 @@ public class DevicesController : ControllerBase
         await _context.SaveChangesAsync();
 
         return Ok(new { message = "Device successfully unassigned." });
-    }
-
-    // 1. Load data from the DB (Get All)
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<CurrentAssignmentView>>> GetDevices()
-    {
-        return await _context.CurrentAssignments.ToListAsync();
-    }
-
-    // 2. Select an item based on an ID
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Device>> GetDevice(int id)
-    {
-        var device = await _context.Device
-        .Include(d => d.DeviceAssignments)
-        .FirstOrDefaultAsync(d => d.Id == id);
-
-        if (device == null)
-        {
-            return NotFound();
-        }
-        var activeAssignment = device.DeviceAssignments
-        .FirstOrDefault(a => a.ReturnedAt == null);
-
-        var devicePayload = new
-        {
-            device.Id,
-            device.Name,
-            device.ManufacturerId,
-            device.Type,
-            device.OperatingSystemId,
-            device.OSVersion,
-            device.Processor,
-            device.RAM_MB,
-            device.Description,
-            device.LocationId,
-
-            // This is the magic property Angular needs to set the dropdown!
-            UserId = activeAssignment?.UserId
-        };
-
-        return Ok(devicePayload);
     }
 
     // 3. Insert a new item to the DB
@@ -262,4 +266,58 @@ public class DevicesController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpPost("generate-description")]
+    [Authorize] 
+    public async Task<IActionResult> GenerateDescription([FromBody] DeviceSpecsDto specs)
+    {
+        var apiKey = _configuration["Gemini:ApiKey"];
+        if (string.IsNullOrEmpty(apiKey)) return StatusCode(500, "AI is not configured.");
+
+        // 1. Prompt Engineering
+        string prompt = $@"
+        You are a technical writer for an IT asset management system.
+        Your task is to create a human-readable, concise, and informative description of a device based on its technical specifications.
+        Focus on generating clear, relevant, and user-friendly descriptions that enhance the device information.
+        Do not just list the specs. Combine them into a natural sentence and infer its general use case or performance level.
+        Do not use bullet points or introductory phrases. Output ONLY the final sentence.
+
+        Example Input:
+        Name - iPhone 17 Pro, Manufacturer - Apple, OS - iOS, Type - phone, RAM - 12288MB, Processor - A19 Pro
+        Example Output:
+        A high-performance Apple smartphone running iOS, suitable for daily business use.
+
+        Now, generate the description for this device:
+        Input:
+        Name - {specs.Name}, Manufacturer - {specs.Manufacturer}, OS - {specs.OperatingSystem}, Type - {specs.Type}, RAM - {specs.Ram}MB, Processor - {specs.Processor}";
+
+        // 2. Format the payload exactly how Gemini expects it
+        var payload = new
+        {
+            contents = new[]
+            {
+            new { parts = new[] { new { text = prompt } } }
+        }
+        };
+
+        
+        using var httpClient = new HttpClient();
+        var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={apiKey}";
+
+        var response = await httpClient.PostAsJsonAsync(url, payload);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var error = await response.Content.ReadAsStringAsync();
+            return StatusCode((int)response.StatusCode, $"AI API Error: {error}");
+        }
+
+        var jsonString = await response.Content.ReadAsStringAsync();
+        var jsonNode = JsonNode.Parse(jsonString);
+        var description = jsonNode?["candidates"]?[0]?["content"]?["parts"]?[0]?["text"]?.ToString();
+
+      
+        return Ok(new { description = description?.Trim() });
+    }
+
 }

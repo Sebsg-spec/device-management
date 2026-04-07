@@ -11,8 +11,6 @@
         public int? RAM_MB { get; set; }
         public string? Description { get; set; }
         public int? LocationId { get; set; }
-
-        // The assignment field!
         public int? UserId { get; set; }
     }
 }

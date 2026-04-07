@@ -25,6 +25,7 @@ export class DeviceFormComponent implements OnInit {
   existingDeviceNames: string[] = []; // Used for duplicate validation
   locations: LocationModel[] = [];
 users: User[] = [];
+isGeneratingAI = false;
 
   ngOnInit(): void {
     this.initForm();
@@ -102,4 +103,45 @@ users: User[] = [];
   });
   console.log('Manufacturers loaded:', this.deviceService.getUsers());
 }
+
+generateAIDescription() {
+    const formValues = this.deviceForm.value;
+
+    // 1. Update the check to use your actual property names
+    if (!formValues.name || !formValues.manufacturerId) {
+      alert("Please fill out the Device Name and Manufacturer first!");
+      return;
+    }
+
+    this.isGeneratingAI = true;
+
+    // 2. Find the text names from your dropdown arrays
+    // IMPORTANT: Change 'this.manufacturers' and 'this.operatingSystems' 
+    // to match whatever variables you are using for your dropdowns!
+    const selectedManufacturer = this.manufacturers.find((m: any) => m.id === formValues.manufacturerId);
+    const selectedOS = this.operatingSystems.find((os: any) => os.id === formValues.operatingSystemId);
+
+    // 3. Build the payload with the WORDS, not the numbers
+    const aiPayload = {
+      Name: formValues.name,
+      Manufacturer: selectedManufacturer ? selectedManufacturer.name : 'Unknown',
+      OperatingSystem: selectedOS ? selectedOS.name : 'Unknown',
+      Type: formValues.type,
+      Ram: formValues.raM_MB,
+      Processor: formValues.processor
+    };
+
+    // 4. Send to the backend
+    this.deviceService.generateDescription(aiPayload).subscribe({
+      next: (res) => {
+        this.deviceForm.patchValue({ description: res.description });
+        this.isGeneratingAI = false;
+      },
+      error: (err) => {
+        console.error('AI Error:', err);
+        alert('Failed to generate description. Make sure the API is running and the key is correct.');
+        this.isGeneratingAI = false;
+      }
+    });
+  }
 }

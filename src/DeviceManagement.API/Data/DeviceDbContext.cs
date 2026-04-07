@@ -35,8 +35,8 @@ namespace Device_management.Data
                 .HasDatabaseName("UQ_Device_Active_Assignment");
 
             modelBuilder.Entity<CurrentAssignmentView>()
-        .HasNoKey()
-        .ToView("vw_CurrentAssignments");
+                .HasNoKey()
+                .ToView("vw_CurrentAssignments");
         }
     }
 }

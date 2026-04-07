@@ -40,22 +40,33 @@ export class DeviceService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-
   getManufacturers(): Observable<Manufacturer[]> {
-  return this.http.get<Manufacturer[]>(`${environment.apiUrl}/Manufacturers`);
-}
+    return this.http.get<Manufacturer[]>(`${environment.apiUrl}/Manufacturers`);
+  }
 
-getOperatingSystems(): Observable<OperatingSystemModel[]> {
+  getOperatingSystems(): Observable<OperatingSystemModel[]> {
   return this.http.get<OperatingSystemModel[]>(`${environment.apiUrl}/OperatingSystems`);
-}
+  }
 
-getLocations(): Observable<LocationModel[]> {
-  return this.http.get<LocationModel[]>(`${environment.apiUrl}/Locations`);
-}
+  getLocations(): Observable<LocationModel[]> {
+    return this.http.get<LocationModel[]>(`${environment.apiUrl}/Locations`);
+  }
 
-getUsers(): Observable<User[]> {
-  return this.http.get<User[]>(`${environment.apiUrl}/Users`);
-}
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${environment.apiUrl}/Users`);
+  }
+
+  assignToSelf(deviceId: number) {
+    return this.http.post(`${this.apiUrl}/${deviceId}/assign`, {});
+  }
+
+  unassignFromSelf(deviceId: number) {
+    return this.http.post(`${this.apiUrl}/${deviceId}/unassign`, {});
+  }
+
+  generateDescription(specs: any) {
+    return this.http.post<{description: string}>(`${this.apiUrl}/generate-description`, specs);
+  }
 }
 
 
