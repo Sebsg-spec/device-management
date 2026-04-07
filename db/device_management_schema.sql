@@ -3,8 +3,6 @@
 -- DB: MS SQL Server (T-SQL)
 -- ============================================================
 
-CREATE DATABASE DeviceManagement;
-GO
 
 USE DeviceManagement;
 GO
