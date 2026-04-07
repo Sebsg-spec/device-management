@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService } from './core/services/auth.service'; // 1. Import this!
+import { AuthService } from './core/services/auth.service'; 
 
 @Component({
   selector: 'app-root',
@@ -31,7 +31,6 @@ export class AppComponent {
     const name = this.authService.getCurrentUserName();
     if (!name) return '?';
     
-    // Splits "Noah Garcia" into ["Noah", "Garcia"] and takes the first letter of each
     const parts = name.split(' ');
     if (parts.length >= 2) {
       return `${parts[0][0]}${parts[1][0]}`.toUpperCase();

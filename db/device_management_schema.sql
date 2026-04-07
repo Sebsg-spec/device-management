@@ -74,6 +74,7 @@ CREATE TABLE [User] (
     Email           NVARCHAR(200)   NULL UNIQUE,
     LocationId      INT             NULL,
     CreatedAt       DATETIME2       NOT NULL DEFAULT SYSUTCDATETIME(),
+	PasswordHash    VARCHAR(100)    NOT NULL
 
     CONSTRAINT FK_User_Location FOREIGN KEY (LocationId) REFERENCES Location(Id)
 );
@@ -142,14 +143,3 @@ CREATE VIEW vw_CurrentAssignments AS
     WHERE da.ReturnedAt IS NULL;
 GO
 
--- ------------------------------------------------------------
--- Seed data (optional - for testing)
--- ------------------------------------------------------------
-INSERT INTO Manufacturer (Name) VALUES ('Apple'), ('Samsung'), ('Google'), ('Microsoft');
-INSERT INTO OperatingSystem (Name) VALUES ('iOS'), ('Android'), ('Windows'), ('HarmonyOS');
-INSERT INTO Location (Name, Address, City, Country)
-    VALUES
-    ('HQ - Main Office',    '1 Company Blvd', 'New York',  'USA'),
-    ('Branch - London',     '10 Thames St',   'London',    'UK'),
-    ('Warehouse - Storage', '99 Depot Lane',  'New Jersey', 'USA');
-GO

@@ -3,12 +3,18 @@ using Device_management.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Device_management.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DeviceDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Add the HttpClient Factory so your AiService can use it!
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IAiService, AiService>();
+builder.Services.AddScoped<IDeviceService, DeviceService>();
 // Add JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

@@ -2,7 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
-import { LocationService, Location } from '../../core/services/location.service'; // 1. Import the service and interface
+import { LocationService, Location } from '../../core/services/location.service';
 
 @Component({
   selector: 'app-register',
@@ -10,13 +10,12 @@ import { LocationService, Location } from '../../core/services/location.service'
   imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './register.component.html'
 })
-export class RegisterComponent implements OnInit { // 2. Add OnInit
+export class RegisterComponent implements OnInit { 
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private authService = inject(AuthService);
-  private locationService = inject(LocationService); // 3. Inject the service
+  private locationService = inject(LocationService); 
 
-  // 4. Start with an empty array
   locations: Location[] = [];
 
   registerForm: FormGroup = this.fb.group({
@@ -29,7 +28,7 @@ export class RegisterComponent implements OnInit { // 2. Add OnInit
   errorMessage: string = '';
   isSubmitting = false;
 
-  // 5. Fetch data when the component loads
+  
   ngOnInit() {
     this.locationService.getLocations().subscribe({
       next: (data) => {

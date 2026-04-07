@@ -9,33 +9,27 @@ import { Manufacturer, OperatingSystemModel, User, LocationModel} from '../../sh
   providedIn: 'root'
 })
 export class DeviceService {
-  // inject() is the modern Angular way to inject dependencies
+
   private http = inject(HttpClient); 
   
-  // Combines the base URL from environment with the controller name
   private apiUrl = `${environment.apiUrl}/Devices`;
 
-  // 1. Get All Devices
   getDevices(): Observable<DeviceReadDto[]> {
     return this.http.get<DeviceReadDto[]>(this.apiUrl);
   }
 
-  // 2. Get Single Device by ID
   getDevice(id: number): Observable<Device> {
     return this.http.get<Device>(`${this.apiUrl}/${id}`);
   }
 
-  // 3. Create new Device
   createDevice(device: Device): Observable<Device> {
     return this.http.post<Device>(this.apiUrl, device);
   }
 
-  // 4. Update existing Device
   updateDevice(id: number, device: Device): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/${id}`, device);
   }
 
-  // 5. Delete Device
   deleteDevice(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
@@ -67,6 +61,11 @@ export class DeviceService {
   generateDescription(specs: any) {
     return this.http.post<{description: string}>(`${this.apiUrl}/generate-description`, specs);
   }
+
+  searchDevices(query: string) {
+    return this.http.get<DeviceReadDto[]>(`${this.apiUrl}/search?q=${encodeURIComponent(query)}`);
+  }
+
 }
 
 

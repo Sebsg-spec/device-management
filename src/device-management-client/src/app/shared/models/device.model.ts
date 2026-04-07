@@ -1,10 +1,10 @@
 // Used when reading data from your GET endpoints
 export interface DeviceReadDto {
-  deviceId: number; // Was 'id'
-  deviceName: string; // Was 'name'
-  deviceType: string; // Was 'type'
-  manufacturer: string; // Was 'manufacturerName'
-  operatingSystem: string; // Was 'osName'
+  deviceId: number; 
+  deviceName: string; 
+  deviceType: string; 
+  manufacturer: string; 
+  operatingSystem: string; 
   osVersion: string;
   userName?: string;
     ram_MB?: number | null;

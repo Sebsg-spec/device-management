@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\deviceassignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\deviceassignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\dtos\\devicespecsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:dtos\\devicespecsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:services\\aiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -27,16 +15,28 @@
       "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\services\\deviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:services\\deviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\devicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\services\\ideviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:services\\ideviceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\services\\iaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:services\\iaiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\locationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\locationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\manufacturerscontrolle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\manufacturerscontrolle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\operatingsystemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,12 +47,32 @@
       "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\data\\devicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:data\\devicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\models\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:models\\device.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\deviceassignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\deviceassignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\dtos\\devicespecsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:dtos\\devicespecsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\controllers\\manufacturerscontrolle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:controllers\\manufacturerscontrolle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\models\\currentassignmentview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -73,10 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.api\\data\\devicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A8D58EB3-0194-4321-94DA-544BDEC165BB}|Device_management.csproj|solutionrelative:data\\devicedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7A1B9C7-6C61-403F-A6F3-615EDEDD6322}|..\\DeviceManagement.Tests\\Device_management.Tests.csproj|c:\\users\\sebi\\desktop\\repos\\device-management\\src\\devicemanagement.tests\\deviceintegrationtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -104,72 +120,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DeviceSpecsDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\DeviceSpecsDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\DeviceSpecsDTO.cs",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\DeviceSpecsDTO.cs",
-              "RelativeToolTip": "DTOs\\DeviceSpecsDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "DeviceService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\DeviceService.cs",
+              "RelativeDocumentMoniker": "Services\\DeviceService.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\DeviceService.cs",
+              "RelativeToolTip": "Services\\DeviceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T10:54:27.167Z",
+              "WhenOpened": "2026-04-07T15:58:50.641Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DeviceController.cs",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DeviceController.cs",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceController.cs",
-              "RelativeToolTip": "Controllers\\DeviceController.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAswB0BAABTAAAAAAAAAA==",
+              "Title": "AiService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\AiService.cs",
+              "RelativeDocumentMoniker": "Services\\AiService.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\AiService.cs",
+              "RelativeToolTip": "Services\\AiService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA2wBwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:45:25.66Z",
+              "WhenOpened": "2026-04-07T15:57:49.462Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "IAiService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\IAiService.cs",
+              "RelativeDocumentMoniker": "Services\\IAiService.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\IAiService.cs",
+              "RelativeToolTip": "Services\\IAiService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:37:44.502Z",
+              "WhenOpened": "2026-04-07T15:57:27.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DeviceAssignments.cs",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceAssignments.cs",
-              "RelativeDocumentMoniker": "Controllers\\DeviceAssignments.cs",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceAssignments.cs",
-              "RelativeToolTip": "Controllers\\DeviceAssignments.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T11:13:20.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-06T16:09:37.889Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "LocationsController.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\LocationsController.cs",
               "RelativeDocumentMoniker": "Controllers\\LocationsController.cs",
@@ -188,27 +178,27 @@
               "RelativeDocumentMoniker": "Models\\Device.cs",
               "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Models\\Device.cs",
               "RelativeToolTip": "Models\\Device.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T09:52:44.673Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-06T16:09:34.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "CurrentAssignmentView.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Models\\CurrentAssignmentView.cs",
               "RelativeDocumentMoniker": "Models\\CurrentAssignmentView.cs",
@@ -216,12 +206,11 @@
               "RelativeToolTip": "Models\\CurrentAssignmentView.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T10:09:11.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T10:09:11.137Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "DeviceUpdateDTO.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\DeviceUpdateDTO.cs",
               "RelativeDocumentMoniker": "DTOs\\DeviceUpdateDTO.cs",
@@ -229,12 +218,11 @@
               "RelativeToolTip": "DTOs\\DeviceUpdateDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T11:17:24.227Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T11:17:24.227Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "DeviceReadDro.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\DeviceReadDro.cs",
               "RelativeDocumentMoniker": "DTOs\\DeviceReadDro.cs",
@@ -242,12 +230,11 @@
               "RelativeToolTip": "DTOs\\DeviceReadDro.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:57:36.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T09:57:36.927Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "DeviceCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\DeviceCreateDto.cs",
               "RelativeDocumentMoniker": "DTOs\\DeviceCreateDto.cs",
@@ -255,12 +242,11 @@
               "RelativeToolTip": "DTOs\\DeviceCreateDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T10:39:37.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T10:39:37.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -268,7 +254,58 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T16:07:18.394Z",
+              "WhenOpened": "2026-04-06T16:07:18.394Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T09:37:44.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DeviceController.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DeviceController.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceController.cs",
+              "RelativeToolTip": "Controllers\\DeviceController.cs",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAQwBsBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T09:45:25.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-06T16:09:37.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IDeviceService.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\IDeviceService.cs",
+              "RelativeDocumentMoniker": "Services\\IDeviceService.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Services\\IDeviceService.cs",
+              "RelativeToolTip": "Services\\IDeviceService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T15:58:25.554Z",
               "EditorCaption": ""
             },
             {
@@ -299,46 +336,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ManufacturersControlle.cs",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\ManufacturersControlle.cs",
-              "RelativeDocumentMoniker": "Controllers\\ManufacturersControlle.cs",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\ManufacturersControlle.cs",
-              "RelativeToolTip": "Controllers\\ManufacturersControlle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "DeviceAssignments.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceAssignments.cs",
+              "RelativeDocumentMoniker": "Controllers\\DeviceAssignments.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\DeviceAssignments.cs",
+              "RelativeToolTip": "Controllers\\DeviceAssignments.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T09:46:25.346Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T11:13:20.155Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowGIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T16:13:32.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AuthDtos.cs",
-              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\AuthDtos.cs",
-              "RelativeDocumentMoniker": "DTOs\\AuthDtos.cs",
-              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\AuthDtos.cs",
-              "RelativeToolTip": "DTOs\\AuthDtos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T16:12:42.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 11,
               "Title": "DeviceDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Data\\DeviceDbContext.cs",
               "RelativeDocumentMoniker": "Data\\DeviceDbContext.cs",
@@ -351,7 +361,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 14,
+              "Title": "DeviceSpecsDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\DeviceSpecsDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\DeviceSpecsDTO.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\DeviceSpecsDTO.cs",
+              "RelativeToolTip": "DTOs\\DeviceSpecsDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T10:54:27.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ManufacturersControlle.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\ManufacturersControlle.cs",
+              "RelativeDocumentMoniker": "Controllers\\ManufacturersControlle.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\ManufacturersControlle.cs",
+              "RelativeToolTip": "Controllers\\ManufacturersControlle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T09:46:25.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowGIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T16:13:32.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AuthDtos.cs",
+              "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\AuthDtos.cs",
+              "RelativeDocumentMoniker": "DTOs\\AuthDtos.cs",
+              "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\DTOs\\AuthDtos.cs",
+              "RelativeToolTip": "DTOs\\AuthDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T16:12:42.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "Device_management.Tests.csproj",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.Tests\\Device_management.Tests.csproj",
               "RelativeDocumentMoniker": "..\\DeviceManagement.Tests\\Device_management.Tests.csproj",
@@ -359,24 +417,22 @@
               "RelativeToolTip": "..\\DeviceManagement.Tests\\Device_management.Tests.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-06T12:07:40.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T12:07:40.378Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "Device_management",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Device_management.csproj",
               "RelativeDocumentMoniker": "Device_management.csproj",
               "ToolTip": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.API\\Device_management.csproj",
               "RelativeToolTip": "Device_management.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-06T12:06:27.202Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T12:06:27.202Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "DeviceIntegrationTests.cs",
               "DocumentMoniker": "C:\\Users\\Sebi\\Desktop\\Repos\\device-management\\src\\DeviceManagement.Tests\\DeviceIntegrationTests.cs",
               "RelativeDocumentMoniker": "..\\DeviceManagement.Tests\\DeviceIntegrationTests.cs",
@@ -384,8 +440,7 @@
               "RelativeToolTip": "..\\DeviceManagement.Tests\\DeviceIntegrationTests.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T12:07:43.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-06T12:07:43.572Z"
             }
           ]
         }

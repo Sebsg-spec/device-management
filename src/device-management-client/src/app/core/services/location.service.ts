@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 
 export interface Location {
   id: number;
-  name: string; // Change this if your database column is called something else (like 'city' or 'locationName')
+  name: string; 
 }
 
 @Injectable({
@@ -12,7 +12,7 @@ export interface Location {
 })
 export class LocationService {
   private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/Locations`; // Assuming your backend controller is called LocationsController
+  private apiUrl = `${environment.apiUrl}/Locations`;
 
   getLocations() {
     return this.http.get<Location[]>(this.apiUrl);

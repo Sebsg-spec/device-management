@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterModule } from '@angular/router';
-import { AuthService } from '../../core/services/auth.service'; // Import your new service
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service'; // Import your n
 export class LoginComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
-  private authService = inject(AuthService); // Inject it
+  private authService = inject(AuthService); 
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -25,7 +25,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: () => {
-          // Success! The token is saved, go to the dashboard
+          
           this.router.navigate(['/devices']);
         },
         error: (err) => {

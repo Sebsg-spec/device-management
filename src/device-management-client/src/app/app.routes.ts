@@ -14,7 +14,7 @@ export const routes: Routes = [
   },
   { 
     path: 'devices', 
-    canActivate: [authGuard], // 2. Add the bouncer here!
+    canActivate: [authGuard], 
     loadChildren: () => import('./features/devices/devices.routes').then(m => m.deviceRoutes) 
   },
   { path: '**', redirectTo: 'devices' }

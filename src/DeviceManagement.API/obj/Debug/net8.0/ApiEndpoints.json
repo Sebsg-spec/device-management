@@ -189,6 +189,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Device_management.Controllers.DevicesController",
+    "Method": "SearchDevices",
+    "RelativePath": "api/Devices/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "q",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Device_management.Controllers.LocationsController",
     "Method": "GetLocations",
     "RelativePath": "api/Locations",

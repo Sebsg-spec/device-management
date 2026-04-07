@@ -67,7 +67,6 @@ export class AuthService {
       const payload = token.split('.')[1];
       const decodedData = JSON.parse(atob(payload));
       
-      // Extract the Role claim
       return decodedData['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
     } catch (e) {
       return null;
@@ -76,7 +75,6 @@ export class AuthService {
 
   isAdmin(): boolean {
     const role = this.getCurrentUserRole();
-    // Adjust this string to match whatever your DB uses for admins!
     return role === 'Systems Administrator'; 
   }
 

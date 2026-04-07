@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Device_management.Data;
 using Device_management.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
-using System.Text.Json.Nodes;
-using System.Text.Json;
 using Device_management.DTOs;
+using Device_management.Services;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Device_management.Controllers;
 
@@ -17,11 +16,15 @@ public class DevicesController : ControllerBase
 {
     private readonly DeviceDbContext _context;
     private readonly IConfiguration _configuration;
+    private readonly IAiService _aiService;
+    private readonly IDeviceService _deviceService;
 
-    public DevicesController(DeviceDbContext context, IConfiguration configuration)
+    public DevicesController(DeviceDbContext context, IConfiguration configuration, IAiService aiService, IDeviceService deviceService)
     {
         _context = context;
-        _configuration = configuration; 
+        _configuration = configuration;
+        _aiService = aiService;
+        _deviceService = deviceService;
     }
 
 
@@ -137,39 +140,17 @@ public class DevicesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Device>> PostDevice(DeviceCreateDto dto)
     {
-        var device = new Device
+        try
         {
-            Name = dto.Name,
-            ManufacturerId = dto.ManufacturerId,
-            Type = dto.Type,
-            OperatingSystemId = dto.OperatingSystemId,
-            OSVersion = dto.OSVersion,
-            Processor = dto.Processor,
-            RAM_MB = dto.RAM_MB,
-            Description = dto.Description,
-            LocationId = dto.LocationId,
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow
-        };
-
-        _context.Device.Add(device);
-        await _context.SaveChangesAsync();
-
-        if (dto.UserId.HasValue)
-        {
-            var assignment = new DeviceAssignment
-            {
-                DeviceId = device.Id,
-                UserId = dto.UserId.Value,
-                AssignedAt = DateTime.UtcNow
-            };
-            _context.DeviceAssignment.Add(assignment);
-            await _context.SaveChangesAsync();
+            
+            var device = await _deviceService.CreateDeviceAsync(dto);
+            return Ok(device);
         }
-
-        return Ok(device);
+        catch (Exception)
+        {
+            return StatusCode(500, "An error occurred while saving the device.");
+        }
     }
-
     // 4. Update an existing item
     [HttpPut("{id}")]
     public async Task<IActionResult> PutDevice(int id, DeviceUpdateDto dto)
@@ -268,56 +249,45 @@ public class DevicesController : ControllerBase
     }
 
     [HttpPost("generate-description")]
-    [Authorize] 
+    [Authorize]
     public async Task<IActionResult> GenerateDescription([FromBody] DeviceSpecsDto specs)
     {
-        var apiKey = _configuration["Gemini:ApiKey"];
-        if (string.IsNullOrEmpty(apiKey)) return StatusCode(500, "AI is not configured.");
-
-        // 1. Prompt Engineering
-        string prompt = $@"
-        You are a technical writer for an IT asset management system.
-        Your task is to create a human-readable, concise, and informative description of a device based on its technical specifications.
-        Focus on generating clear, relevant, and user-friendly descriptions that enhance the device information.
-        Do not just list the specs. Combine them into a natural sentence and infer its general use case or performance level.
-        Do not use bullet points or introductory phrases. Output ONLY the final sentence.
-
-        Example Input:
-        Name - iPhone 17 Pro, Manufacturer - Apple, OS - iOS, Type - phone, RAM - 12288MB, Processor - A19 Pro
-        Example Output:
-        A high-performance Apple smartphone running iOS, suitable for daily business use.
-
-        Now, generate the description for this device:
-        Input:
-        Name - {specs.Name}, Manufacturer - {specs.Manufacturer}, OS - {specs.OperatingSystem}, Type - {specs.Type}, RAM - {specs.Ram}MB, Processor - {specs.Processor}";
-
-        // 2. Format the payload exactly how Gemini expects it
-        var payload = new
+        try
         {
-            contents = new[]
-            {
-            new { parts = new[] { new { text = prompt } } }
+
+            var description = await _aiService.GenerateDeviceDescriptionAsync(specs);
+            return Ok(new { description });
         }
-        };
-
-        
-        using var httpClient = new HttpClient();
-        var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={apiKey}";
-
-        var response = await httpClient.PostAsJsonAsync(url, payload);
-
-        if (!response.IsSuccessStatusCode)
+        catch (Exception ex)
         {
-            var error = await response.Content.ReadAsStringAsync();
-            return StatusCode((int)response.StatusCode, $"AI API Error: {error}");
+            return StatusCode(500, ex.Message);
+        }
+    }
+
+    [HttpGet("search")]
+    public async Task<IActionResult> SearchDevices([FromQuery] string q)
+    {
+        if (string.IsNullOrWhiteSpace(q))
+        {
+            return Ok(new List<DeviceReadDto>());
         }
 
-        var jsonString = await response.Content.ReadAsStringAsync();
-        var jsonNode = JsonNode.Parse(jsonString);
-        var description = jsonNode?["candidates"]?[0]?["content"]?["parts"]?[0]?["text"]?.ToString();
+        // Search logic is completely hidden in the service
+        var devices = await _deviceService.SearchDevicesAsync(q);
 
-      
-        return Ok(new { description = description?.Trim() });
+        // Map the result to your DTO
+        var dtos = devices.Select(d => new
+        {
+            DeviceId = d.Id,
+            DeviceName = d.Name,
+            Manufacturer = d.Manufacturer?.Name,
+                OperatingSystem = d.OperatingSystem?.Name,
+                OsVersion = d.OSVersion,
+                Processor = d.Processor,
+                Ram = d.RAM_MB
+            });
+
+        return Ok(dtos);
     }
 
 }
